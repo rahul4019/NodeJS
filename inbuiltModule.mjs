@@ -9,8 +9,8 @@ console.log('Free Memory: ', os.freemem() / (1024 * 1024)); // free memory size 
 
 console.log('Uptime: ', (os.uptime() / (60 * 60)).toFixed(2)); // system time in hours
 
-console.log('Hostname: ', os.hostname());
+console.log('Hostname: ', os.hostname()); // hostname object
 
-console.log('User info: ', os.userInfo());
+console.log('User info: ', os.userInfo()); // logged in user's information
 
-console.log('Machine : ', os.machine());
+console.log('Machine : ', os.machine()); // system architecture
