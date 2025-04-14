@@ -3,8 +3,6 @@ import os from 'node:os';
 function monitor() {
   const oldCpus = os.cpus();
 
-  // console.log(oldCpus);
-
   setTimeout(() => {
     const newCpus = os.cpus();
 
@@ -15,7 +13,15 @@ function monitor() {
       };
     });
 
+    console.clear();
+    console.log(usage);
     console.table(usage);
+
+    console.log(`Memory used: ${(
+      (os.totalmem() - os.freemem()) /
+      (1024 * 1024 * 1024)
+    ).toFixed(2)} GB / ${(os.totalmem() / (1024 * 1024 * 1024)).toFixed(2)}
+      `);
   }, 1000);
 }
 
