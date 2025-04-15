@@ -1,3 +1,4 @@
+import chalk from 'chalk';
 import os from 'node:os';
 
 function monitor() {
@@ -14,14 +15,30 @@ function monitor() {
     });
 
     console.clear();
-    console.log(usage);
+    console.log(chalk.green(`=====System Stats=====`));
     console.table(usage);
 
-    console.log(`Memory used: ${(
+    const usedMemory = (
       (os.totalmem() - os.freemem()) /
       (1024 * 1024 * 1024)
-    ).toFixed(2)} GB / ${(os.totalmem() / (1024 * 1024 * 1024)).toFixed(2)}
-      `);
+    ).toFixed(2);
+
+    console.log(
+      'Memory used: ',
+      usedMemory > 16
+        ? chalk.redBright(
+            `${usedMemory} GB / ${(
+              os.totalmem() /
+              (1024 * 1024 * 1024)
+            ).toFixed(2)}`
+          )
+        : chalk.greenBright(
+            `${usedMemory} GB / ${(
+              os.totalmem() /
+              (1024 * 1024 * 1024)
+            ).toFixed(2)}`
+          )
+    );
   }, 1000);
 }
 
