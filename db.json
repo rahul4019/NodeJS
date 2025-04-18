@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Netflix subscription",
+    "amount": 299
+  },
+  {
+    "name": "Prime subscription",
+    "amount": 199
+  },
+  {
+    "name": "Youtube subscription",
+    "amount": 199
+  },
+  {
+    "name": "Clothes",
+    "amount": 2999
+  }
+]
